@@ -7,32 +7,33 @@
     <title>¿Quieres ser mi novia?</title>
     <style>
         :root {
-            --main-color: #ff69b4;
-            --accent-color: #ff1493;
-            --bg-color: #fff0f5;
+            --color-principal: #ff69b4;
+            --color-secundario: #ff1493;
+            --color-fondo: #fff0f5;
+            --fuente: 'Segoe UI', sans-serif;
         }
 
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            background: var(--bg-color);
-            font-family: 'Segoe UI', sans-serif;
+            background: var(--color-fondo);
+            font-family: var(--fuente);
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             height: 100vh;
             overflow: hidden;
-            padding: 1rem;
             text-align: center;
+            padding: 1rem;
         }
 
         h1 {
-            color: var(--accent-color);
+            color: var(--color-secundario);
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
             animation: fadeIn 1.5s ease-out;
@@ -58,7 +59,7 @@
         }
 
         #si {
-            background-color: var(--main-color);
+            background-color: var(--color-principal);
             color: white;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
@@ -76,7 +77,7 @@
         #mensaje-final {
             display: none;
             font-size: 1.5rem;
-            color: var(--accent-color);
+            color: var(--color-secundario);
             margin-top: 2rem;
             animation: popIn 0.5s ease forwards;
         }
@@ -178,16 +179,20 @@
         <button id="no">No 🙈</button>
     </div>
 
-    <div id="mensaje-final">¡Sabía que dirías que sí! 💘</div>
+    <div id="mensaje-final">¡Te amooooooooo mi amorcito! 💘</div>
+
+    <audio id="audio" src="tu-cancion.mp3" loop></audio>
 
     <script>
         const btnSi = document.getElementById('si');
         const btnNo = document.getElementById('no');
         const mensaje = document.getElementById('mensaje-final');
+        const audio = document.getElementById('audio');
 
         btnSi.addEventListener('click', () => {
             mensaje.style.display = 'block';
             crearCorazones(30);
+            audio.play();
         });
 
         btnNo.addEventListener('touchstart', moverBoton);
